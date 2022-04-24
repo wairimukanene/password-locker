@@ -45,10 +45,21 @@ class Credential:
         '''
         This function helps define properties of new and or existing accounts objects.
         Args:
-            accountName: brand name of user online account. For example; 'pintrest'
+            accountName: brand name of user online account. For example; 'instagram'
             accountUsername: user username of a specified online account.
             accountPassword: user password for an online account.
         '''
+        self.accountName = accountName
+        self.accountUsername = accountUsername
+        self.accountPassword = accountPassword
+
+         # save account function
+    def save_account(self):
+        '''
+        save_account method saves account log in credentials object into credential_list
+        '''
+        Credential.credentials_list.append(self)
+
 
 
 
