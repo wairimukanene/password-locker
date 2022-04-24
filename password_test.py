@@ -96,7 +96,19 @@ class TestCredential(unittest.TestCase):
         test_account = Credential('instagram', 'wairimuKanene', 'wa.irim.u')
         test_account.save_account()
 
-        found_account = Credential.find_by_accountUsername('wa.irim.u')
+        found_account = Credential.find_by_accountUsername('wairimuKanene')
         self.assertEqual(found_account.accountUsername,test_account.accountUsername)
+
+        # check if account exist
+    def test_account_exist(self):
+        '''
+        Test case to check if a user account already exist returns a boolean
+        '''
+        self.new_account.save_account()
+        test_account = Credential('instagram', 'wairimuKanene', 'wa.irim.u')
+        test_account.save_account()
+
+        account_exists = Credential.account_exist('wairimuKanene')
+        self.assertTrue(account_exists)
 
 
