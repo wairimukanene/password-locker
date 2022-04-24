@@ -60,6 +60,14 @@ class Credential:
         '''
         Credential.credentials_list.append(self)
 
+         #delete account function
+    def delete_account(self):
+        '''
+        delete_account method deletes a saved account from credential_list
+        '''
+        Credential.credentials_list.remove(self)
+
+
 
 
 
