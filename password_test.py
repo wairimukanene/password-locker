@@ -8,3 +8,10 @@ class TestUser(unittest.TestCase):
     Args:
         Testcase class taht helps create test cases for User
     '''
+
+    # test to check if user object is instatiated properly
+    def setUp(self):
+        '''
+        Set up method to run before each test case.
+        '''
+        self.new_profile = User('Wairimu','Kanene')
