@@ -19,13 +19,24 @@ class User:
         Test to save a new profile
         '''
         User.profile_list.append(self)
-        
+
 
     def delete_profile(self):
         '''
         Test to delete user's profile
         '''
         User.profile_list.remove(self)
+
+
+# end of users functions
+#starts of accounts credentials
+## generate credentials functions
+
+
+class Credential:
+    '''
+    This class helps generate instances for new and or existing online accounts log in credentials
+    '''
 
 
 
