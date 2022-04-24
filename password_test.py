@@ -34,3 +34,11 @@ class TestCredential(unittest.TestCase):
         Testcase class that helps create test cases for Credential
     '''
 
+    #test to check if credential object is instantiated properly
+    def setUp(self):
+        '''
+        Set up method to run before each test case.
+        '''
+        self.new_account = Credential('instagram', 'wairimuKanene', 'wa.irim.u') #sample login details for a new pintrest account 
+
+
