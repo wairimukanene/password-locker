@@ -111,4 +111,10 @@ class TestCredential(unittest.TestCase):
         account_exists = Credential.account_exist('wairimuKanene')
         self.assertTrue(account_exists)
 
+         # display available accounts
+    def test_display_all_accounts(self):
+        '''
+        Method that returns a list of all saved accounts
+        '''
+
 
