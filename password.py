@@ -28,15 +28,27 @@ class User:
         User.profile_list.remove(self)
 
 
-# end of users functions
+# end of users instances
 #starts of accounts credentials
-## generate credentials functions
+## generate credentials instances
 
 
 class Credential:
     '''
     This class helps generate instances for new and or existing online accounts log in credentials
     '''
+
+
+    credentials_list = [] # empty list that will hold online accounts log in details
+
+    def __init__(self, accountName, accountUsername, accountPassword):
+        '''
+        This function helps define properties of new and or existing accounts objects.
+        Args:
+            accountName: brand name of user online account. For example; 'pintrest'
+            accountUsername: user username of a specified online account.
+            accountPassword: user password for an online account.
+        '''
 
 
 
