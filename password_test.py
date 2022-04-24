@@ -39,6 +39,14 @@ class TestCredential(unittest.TestCase):
         '''
         Set up method to run before each test case.
         '''
-        self.new_account = Credential('instagram', 'wairimuKanene', 'wa.irim.u') #sample login details for a new pintrest account 
+        self.new_account = Credential('instagram', 'wairimuKanene', 'wa.irim.u') #sample login details for a new instagram account 
+
+    def test__init(self):
+        '''
+        Test case to test if credential object is instantiated correctly
+        '''
+        self.assertEqual(self.new_account.accountName, 'instagram')
+        self.assertEqual(self.new_account.accountUsername,'wairimuKanene')
+        self.assertEqual(self.new_account.accountPassword,'wa.irim.u')
 
 
