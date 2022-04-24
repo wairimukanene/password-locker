@@ -23,3 +23,14 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.new_profile.userName, 'Wairimu')
         self.assertEqual(self.new_profile.password, 'Kanene')
 
+        #end of class user test
+        #start of class credential test
+
+class TestCredential(unittest.TestCase):
+    '''
+    Test class that helps define test cases for the credentials class behaviours
+    
+    Args:
+        Testcase class that helps create test cases for Credential
+    '''
+
