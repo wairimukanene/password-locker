@@ -19,6 +19,14 @@ class User:
         Test to save a new profile
         '''
         User.profile_list.append(self)
+        
+
+    def delete_profile(self):
+        '''
+        Test to delete user's profile
+        '''
+        User.profile_list.remove(self)
+
 
 
 
