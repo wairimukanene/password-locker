@@ -15,3 +15,11 @@ class TestUser(unittest.TestCase):
         Set up method to run before each test case.
         '''
         self.new_profile = User('Wairimu','Kanene')
+
+    def test__init(self):
+        '''
+        Test case to test if User object is instantiated correctly
+        '''
+        self.assertEqual(self.new_profile.userName, 'Wairimu')
+        self.assertEqual(self.new_profile.password, 'Kanene')
+
