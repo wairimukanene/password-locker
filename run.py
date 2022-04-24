@@ -47,3 +47,10 @@ def display_accounts():
     Function that returns all saved accounts
     '''
     return Credential.display_accounts()
+
+def delete_account(accountName):
+    '''
+    Function that deletes an account
+    '''
+    return Credential.delete_account(accountName)
+
