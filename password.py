@@ -92,6 +92,18 @@ def account_exist(cls, accountUsername):
             True or false depending id the account exists
         '''
 
+        for account in cls.credentials_list:
+            if account.accountUsername == accountUsername:
+                return True
+            return False
+
+@classmethod
+def display_accounts(cls):
+        '''
+        Method that retuns items in credential list
+        '''
+        return cls.credentials_list
+
 
             
 
