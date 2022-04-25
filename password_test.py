@@ -108,7 +108,7 @@ class TestCredential(unittest.TestCase):
         test_account = Credential('instagram', 'wairimuKanene', 'wa.irim.u')
         test_account.save_account()
 
-        account_exists = Credential.account_exist('wairimuKanene')
+        account_exists = Credential.account_exist('instagram')
         self.assertTrue(account_exists)
 
          # display available accounts
