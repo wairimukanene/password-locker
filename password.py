@@ -41,6 +41,13 @@ class Credential:
 
     credentials_list = [] # empty list that will hold online accounts log in details
 
+    def save_account(self):
+        '''
+        save_account method saves account log in credentials object into credential_list
+        '''
+        Credential.credentials_list.append(self)
+
+
     def __init__(self, accountName, accountUsername, accountPassword):
         '''
         This function helps define properties of new and or existing accounts objects.
@@ -49,16 +56,18 @@ class Credential:
             accountUsername: user username of a specified online account.
             accountPassword: user password for an online account.
         '''
+
+        
         self.accountName = accountName
         self.accountUsername = accountUsername
         self.accountPassword = accountPassword
 
          # save account function
-    def save_account(self):
-        '''
-        save_account method saves account log in credentials object into credential_list
-        '''
-        Credential.credentials_list.append(self)
+    # def save_account(self):
+    #     '''
+    #     save_account method saves account log in credentials object into credential_list
+    #     '''
+    #     Credential.credentials_list.append(self)
 
          #delete account function
     def delete_account(self):
@@ -69,7 +78,7 @@ class Credential:
 
         
     @classmethod
-    def find_by_accountUsername(cls, accountUsername):
+    def find_by_id(cls,id):
         '''
         Method that takes in accountUsername and returns an account that matches that accountUsername
         Args:
@@ -78,12 +87,12 @@ class Credential:
             account of person that matches accountUsername
         '''
         for account in cls.credentials_list:
-            if account.accountUsername == accountUsername:
+            if account.accountUsername == id:
                 return account
   
 
-@classmethod
-def account_exist(cls, accountUsername):
+    @classmethod
+    def account_exist(cls,id):
         '''
         Method that check if an account already exists from the credential list
         Args: 
@@ -93,12 +102,12 @@ def account_exist(cls, accountUsername):
         '''
 
         for account in cls.credentials_list:
-            if account.accountUsername == accountUsername:
+            if account.accountUsername == id:
                 return True
-            return False
+        return False
 
-@classmethod
-def display_accounts(cls):
+    @classmethod
+    def display_accounts(cls):
         '''
         Method that retuns items in credential list
         '''

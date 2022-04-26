@@ -35,6 +35,14 @@ class TestCredential(unittest.TestCase):
     '''
 
     #test to check if credential object is instantiated properly
+
+    def tearDown(self):
+        '''
+        cleans up each credential list after instance
+        '''
+        Credential.credentials_list = []
+
+
     def setUp(self):
         '''
         Set up method to run before each test case.
@@ -57,20 +65,13 @@ class TestCredential(unittest.TestCase):
         self.new_account.save_account()
         self.assertEqual(len(Credential.credentials_list),1)
 
-
-    def tearDown(self):
-        '''
-        cleans up each credential list after instance
-        '''
-        Credential.credentials_list = []
-
          # save multiple accounts
     def test_save_multiple_accounts(self):
         '''
         Test case to check if users can save multiple accounts
         '''
         self.new_account.save_account()
-        test_account = Credential('instagram', 'wairimuKanene', 'wa.irim.u')
+        test_account = Credential('Test', 'ninakamau', 'nania')
         test_account.save_account()
         self.assertEqual(len(Credential.credentials_list),2)
 
@@ -81,34 +82,34 @@ class TestCredential(unittest.TestCase):
         Test case to check if user can delete an account
         '''
         self.new_account.save_account()
-        test_account = Credential('instagram', 'wairimuKanene', 'wa.irim.u')
+        test_account = Credential('Test', 'ninakamau', 'nania')
         test_account.save_account()
 
         self.new_account.delete_account() #deletes account object
         self.assertEqual(len(Credential.credentials_list),1)
 
-        # search account by username
-    def test_find_account_by_username(self):
+        # search account by id
+    def test_find_account_by_id(self):
         '''
         Test case to check if we can find an account by username and display information
         '''
         self.new_account.save_account()
-        test_account = Credential('instagram', 'wairimuKanene', 'wa.irim.u')
+        test_account = Credential('Test', 'ninakamau', 'nania')
         test_account.save_account()
 
-        found_account = Credential.find_by_accountUsername('wairimuKanene')
+        found_account = Credential.find_by_id('ninakamau')
         self.assertEqual(found_account.accountUsername,test_account.accountUsername)
 
         # check if account exist
-    def test_account_exist(self):
+    def test_account_exists(self):
         '''
         Test case to check if a user account already exist returns a boolean
         '''
         self.new_account.save_account()
-        test_account = Credential('instagram', 'wairimuKanene', 'wa.irim.u')
+        test_account = Credential('Test', 'ninakamau', 'nania')
         test_account.save_account()
 
-        account_exists = Credential.account_exist('instagram')
+        account_exists = Credential.account_exist('ninakamau')
         self.assertTrue(account_exists)
 
          # display available accounts

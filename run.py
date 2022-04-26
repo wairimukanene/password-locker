@@ -2,11 +2,11 @@
 from password import Credential
 from password import User
 
-def create_profile(username, password):
+def create_profile(username,password):
     '''
     Function to create a new user profile
     '''
-    new_profile = User(username, password)
+    new_profile = User(username,password)
     return new_profile
 
 def save_profile(profile):
@@ -17,11 +17,11 @@ def save_profile(profile):
 
     ## user class code above
 ## credential class code below
-def create_account(accountName, accountUsername, accountPassword):
+def create_account(accountName,accountUsername,accountPassword):
     '''
     Function to creates a new account
     '''
-    new_account = Credential(accountName, accountUsername, accountPassword)
+    new_account = Credential(accountName,accountUsername,accountPassword)
     return new_account
 
 def save_account(account):
@@ -30,17 +30,17 @@ def save_account(account):
     '''
     account.save_account()
 
-def find_account(accountUsername):
+def find_account(id):
     '''
     Function that find an account by username and return the account
     '''
-    return Credential.find_by_accountUsername(accountUsername)
+    return Credential.find_by_id(id)
 
-def check_existing_account(accountUsername):
+def check_existing_accounts(id):
     '''
     Function that return all the saved account
     '''
-    return Credential.account_exist(accountUsername)
+    return Credential.account_exist(id)
 
 def display_accounts():
     '''
@@ -52,13 +52,13 @@ def delete_account(accountName):
     '''
     Function that deletes an account
     '''
-    return Credential.delete_account(accountName)
+    return Credential.delete_account()
 
 def main():
     print("Hello, Welcome to Password-Manager. We are your  online password wallet.")
 
     print('\n')
-while True:
+    while True:
         print('sign up or log in')
         print('Use this short codes: su - create new profile, li - log in')
         start = input()
@@ -124,7 +124,7 @@ while True:
             elif short_code == 'fa':
                 print('Enter the username you want to search for')
                 search_accountUsername = input()
-                if check_existing_account(search_accountUsername):
+                if check_existing_accounts(search_accountUsername):
                     search_account = find_account(search_accountUsername)
                     print(f"{search_account.accountName} {search_account.accountUsername} {search_account.accountPassword}")
                     print('-'*20)
@@ -137,10 +137,11 @@ while True:
                       # delete account
             elif short_code == 'dlt':
                 print('Enter the account username you want to delete')
-                accountUsername = input()
-                if find_account(accountUsername):
-                    delete_account(find_account(accountUsername))
-                    print(f'{accountUsername} has been deleted')
+                delete = input().lower()
+                if find_account(delete):
+                    search_account = find_account(delete)
+                    search_account.delete_account()
+                    print(f'{search_account.accountName} has been deleted')
                 else:
                     print('The account does not exist')
                      #exit app
@@ -150,7 +151,7 @@ while True:
             else:
                 print('I really didnt get that. Please use the short codes')
 
-                if __name__ == '__main__':
-                  main()
+if __name__ == '__main__':
+    main()
 
 
